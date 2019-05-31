@@ -105,7 +105,7 @@ Antall forekomster av hendelsen $A$ er Poisson-fordelt hvis:
     \item $P(a\leq X \leq b) = \int_a^b f(x)dx$
 \end{itemize}
 \subsubsection*{Standard normalfordeling:}
-\begin{itemize}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
     \item Alle normalfordelinger kan skrives som Standard normalfordeling
     \item $Z=\frac{X-\mu}{\sigma}$
     \item $F(x)=F(X\leq x) = P\left(\frac{X-\mu}{\sigma}\leq\frac{x-\mu}{\sigma}\right)=P\left( Z\leq \frac{x-\mu}{\sigma} \right)=\Phi\left(\frac{x-\mu}{\sigma}\right)$ 
@@ -116,5 +116,30 @@ Være normalfordelt med:
 \begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
     \item $E(Y)=\sum_{i=1}^n \alpha_i \mu_i$
     \item $Var(Y)=\sum_{i=1}^n \alpha^2_i\sigma^2_i$
+\end{itemize}
+%
+%Uniform Fordeling:
+%
+\subsection*{Uniform fordeling:}
+En kontinuerlig uniformt fordelt variabel, har samme sannsynlighet for alle
+verdier innen et intervall. Generelt har vi tetthetsfunksjonen:
+$f(x)=\begin{cases}
+    \frac{1}{B-A},\; A\leq x\leq B\\
+    0,\; \text{ellers}
+\end{cases}$
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $E(X)=\frac{A+B}{2}$
+    \item $Var(X)=\frac{(A-B)^2}{12}$
+\end{itemize}
+\subsection*{Gammafordeling:}
+En kontinuerlig variabel $X$ er gammfordelt med parameter $\alpha>0$ og $\beta>0$
+dersom tetthetsfunksjonen er gitt ved:
+$f(x;\alpha,\beta) = \begin{cases}
+    \frac{1}{\beta^\alpha \Gamma(\alpha)} x^{\alpha-1} e^{-\frac{x}{\beta}},\; x>0\\
+    0,\;\text{ellers}
+\end{cases}$
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $E(X)=\alpha\beta$
+    \item $Var(X)=\alpha\beta^2$
 \end{itemize}
 \end{document}
