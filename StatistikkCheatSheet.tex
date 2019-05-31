@@ -1,0 +1,120 @@
+\documentclass[8pt,a4paper,twocolumn,twoside]{article}
+\usepackage[a4paper,total={20cm, 28.5cm},headsep=0.3cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{amsfonts}
+\usepackage{enumitem}
+\usepackage{amsmath}
+
+\titleformat{\subsection}{\small\bfseries}{\thesection}{1em}{}
+\titleformat{\subsubsection}{\footnotesize\bfseries}{\thesection}{1em}{}
+\sectionfont{\fontsize{10}{8}\selectfont}
+
+\titlespacing*{\section}{0pt}{0.2cm}{0.1cm}
+\titlespacing*{\subsection}{0pt}{0.2cm}{0.1cm}
+\titlespacing*{\subsubsection}{0pt}{0.2cm}{0.1cm}
+
+\setlength{\columnseprule}{1pt}
+
+
+\def\abs#1{\lvert #1 \rvert}
+\def\real{\mathbb{R}}
+\def\suminfty#1#2{\sum_{n=#1}^\infty #2}
+\def\der#1#2#3{\frac{d #1}{d #2}\left( #3 \right)}
+\def\parder#1#2#3{\frac{\partial #1}{\partial #2}\left( #3 \right)}
+
+\begin{document}
+
+\section*{Sannsynlighetsfordelinger:}
+%
+%Binomisk Fordeling:
+%
+\subsection*{Binomisk Fordeling:}
+\begin{enumerate}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item n uavhengige delforsøk
+    \item Suksess eller ikke
+    \item P(A)=p i alle forsøk
+\end{enumerate}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $X$ = Antall ganger $A$ intreffer på n forsøk. 
+    \item $X\sim binom(n,p)$
+    \item $f(x)= \binom{n}{x} \cdot p^x\cdot (1-p)^{n-x},\; x=0,1,2,\dots,n$
+    \item $P(X\leq x)= \sum_{k=0}^{x} P(X=k)$
+    \item $E(X)=np$
+    \item $Var(X)=np(1-p)$
+\end{itemize}
+%
+%Hypergeometrisk
+%
+\subsection*{Hypergeometrisk:}
+\begin{enumerate}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item Populasjon med $N$ elementer.
+    \item $k$ av disse regnes som "Suksess", $N-k$ som fiasko
+    \item Trekker $n$ elementer uten tilbakelegging
+\end{enumerate}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item X, antallet suksesser.
+    \item $f(x)=\frac{\binom{k}{x}\cdot\binom{N-k}{n-x}}{\binom{N}{n}}$
+    \item $E(X)=np,\;p=k/N$
+    \item $Var(X)=np(1-p)\frac{N-n}{N-1}$
+\end{itemize}
+%
+%Negativ-Binomisk
+%
+\subsection*{Negativ-Binomisk:}
+$X$ er antall forsøk en må gjøre for at en hendelse $A$ skal intreffe $k$ ganger
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $f(x) = \binom{x-1}{k-1}\cdot p^x(1-p)^{x-k},\;x=k,k+1,k+2,\dots$
+    \item $E(X)=k/p$
+    \item $Var(x)=k\cdot\frac{1-p}{p^2}$
+\end{itemize}
+%
+%Geometrisk
+%
+\subsection*{Geometrisk:}
+$X$ er antall forsøk en må gjøre for at hendelsen $A$ intreffer første gang.
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $E(X)=1/p$
+    \item $Var(X)=\frac{1-p}{p^2}$
+\end{itemize}
+Geometrisk fordeling er minneløs!
+%
+%Poisson
+%
+\subsection*{Poisson:}
+Antall forekomster av hendelsen $A$ er Poisson-fordelt hvis:
+\begin{enumerate}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item Antallet av $A$ i disjunkte tidsintervall er uavhengige
+    \item Forventa antall av $A$ er konstant lik $\lambda$(raten) per tidsenhet
+    \item Kan ikke få to forekomster samtidig
+\end{enumerate}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $X$ = antall forekomster av $A$ i et tidsrom $t$
+    \item $f(x) = \frac{(\lambda t)^x\cdot e^{-\lambda t}}{x!},\; x=0,1,2,\dots$
+    \item $E(X) = \lambda t$
+    \item $Var(X) = \lambda t$
+    \item $P(X\leq x)=\sum_{k=0}^x P(X=k)$
+\end{itemize}
+%
+%Normalfordeling
+%
+\subsection*{Normalfordeling:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $f(x)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+    \item $P(a\leq X \leq b) = \int_a^b f(x)dx$
+\end{itemize}
+\subsubsection*{Standard normalfordeling:}
+\begin{itemize}
+    \item Alle normalfordelinger kan skrives som Standard normalfordeling
+    \item $Z=\frac{X-\mu}{\sigma}$
+    \item $F(x)=F(X\leq x) = P\left(\frac{X-\mu}{\sigma}\leq\frac{x-\mu}{\sigma}\right)=P\left( Z\leq \frac{x-\mu}{\sigma} \right)=\Phi\left(\frac{x-\mu}{\sigma}\right)$ 
+\end{itemize}
+Anta at $X_1,X_2,\dots,X_n$ er uavhengige og normalfordelt. Da er:
+$Y=\alpha_1 X_1+\alpha_2 X_2+\dots+\alpha_n X_n$
+Være normalfordelt med:
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $E(Y)=\sum_{i=1}^n \alpha_i \mu_i$
+    \item $Var(Y)=\sum_{i=1}^n \alpha^2_i\sigma^2_i$
+\end{itemize}
+\end{document}
