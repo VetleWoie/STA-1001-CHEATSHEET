@@ -171,14 +171,32 @@ Være normalfordelt med:
 %
 %Estimering
 %
-\subsection*{Estimering:}
+\section*{Estimering:}
 %
 %Viktige estimatorer
 %
-\subsubsection*{Viktige estimatoregenskaper:}
+\subsection*{Viktige estimatoregenskaper:}
 \begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
     \item En punktestimator $\Theta$ for en paramaeter $\theta$ er forventningsrett hvis $E(\Theta)=\theta$
     \item Variansen $Var(\Theta)$ burde synke med økende antall observasjoner
     \item Om en har to ulike estimatorer, så er den estimatoren med minst varians den mest effektive estimatoren.
 \end{itemize}
+%
+%Noen vanlige estimatorer
+%
+\subsection*{Vanlige estimatorer:}
+Alle estimatorene vist til her er forventningsrett.
+\begin{itemize}
+    \item $\mu$: $\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i \quad \forvar{\overline{X}}{\mu}{\frac{\sigma^2}{n}}$
+    \item $\sigma^2$: $S^2=\frac{1}{1-n}\sum_{i=1}^n(X_i-\overline{X})^2 \; \forvar{S^2}{\sigma^2}{\frac{2\sigma^4}{n-1}}$
+    \item $p$: $\hat{p}=\frac{X}{n} \quad \forvar{\hat{p}}{p}{\frac{p(1-p)}{p}}$ Binomisk
+    \item $\mu_1-\mu_2$: $\overline{X_1}-\overline{X_2} \quad Var(\overline{X_1}-\overline{X_2})=\frac{\sigma^2_1}{n_1}-\frac{\sigma^2_2}{n_2}$
+    \item $\frac{\sigma^2_1}{\sigma^2_2}$: $\frac{S^2_1}{S^2_2}$
+    \item $p_1-p_2$: $\hat{p_1}-\hat{p_2}$, Binomisk
+    \item $\mu_D: \overline{D}$
+\end{itemize}
+%
+%Utvalgsfordelinger
+%
+\subsection*{Utvalgsfordelinger:}
 \end{document}
