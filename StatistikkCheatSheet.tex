@@ -199,4 +199,47 @@ Alle estimatorene vist til her er forventningsrett.
 %Utvalgsfordelinger
 %
 \subsection*{Utvalgsfordelinger:}
+\subsubsection*{$\bold{\underline{\overline{X},Z}}$:}
+$\overline{X}\sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\; Z=\frac{\overline{X}-E(\overline{X})}{\sqrt{Var{\overline{X}}}}=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)$
+Selv om populasjonen ikke er normalfordelt gjelder dette når $n\to\infty$.Regner vanligvis tilnærmina for god når $n>30$
+\subsubsection*{$\bold{\underline{T}}$}
+Hvis ukjent varians:
+$T=\frac{\overline{X}-\mu}{S/\sqrt{n}}\sim t_{n-1}$
+Dette gjelder tilnærmet andre fordelinger som har klokkeliknende form.
+\subsubsection*{$\bold{\underline{S^2}}$:}
+Forutsatt normalfordeling:
+$\frac{(n-1)S^2}{\sigma^2}=\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\overline{X})^2\sim\chi_{n-1}^2$
+\subsection*{$\bold{\underline{\hat{p}}}$:}
+Binomisk forsøk med sannsynlighet $p$, gitt at $n$ er stor nok:
+$Z=\frac{\hat{p}-E(\hat{p})}{\sqrt{Var(\hat{p})}}=\frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}\sim N(0,1)$
+\subsection*{$\underline{\hat{X_1}-\hat{X_2}}$:}
+Kjent varians:
+\begin{itemize}
+    \item $\hat{X_1}-\hat{X_2} \sim N\left(\mu_1-\mu_2,\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right)$
+    \item $Z=\frac{(\overline{X_1}-\overline{X_2})-(\mu_1-\mu_2)}{\sqrt{\frac{\sigma^2_1}{n_1}+\frac{\sigma^2_2}{n_2}}}\sim N(0,1)$
+\end{itemize}
+Ukjent varians:
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $\sigma^2_1=\sigma^2_2$: $T=\frac{(\overline{X_1}-\overline{X_2}-(\mu_1-\mu_2)}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t_{n_1+n_2-2}$
+    \item $\sigma^2_1\neq\sigma^2_2$: $T'=\frac{(\overline{X_1}-\overline{X_2})-(\mu_1-\mu_2)}{\sqrt{\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2}}}\sim t_v,\, v=\frac{(S^2_1/n_1+s^2_2/n_2)^2}{\frac{(S^2_/n_1)^2}{n_1-1}+\frac{(S^2_2/n_2)^2}{n_2-1}}$
+\end{itemize}
+\subsection*{$\bold{\underline{F}}$}
+Fra to uavhengige NF utvalg:
+$F=\frac{S^2_1\sigma^2_2}{S^2_2\sigma^2_1}\sim F_{n_1-1,n_2-1}$
+\subsection*{$\bold{\underline{\hat{p_1}-\hat{p_2}}}$}
+$Z=\frac{(\hat{p_1}-\hat{p_2})-(p_1-p_2)}{\sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}}}\sim N(0,1)$
+\subsection*{$\bold{\underline{\overline{D}}}$}
+Gitt normalfordeling: $T=\frac{\overline{D}-\mu_D}{S_D/\sqrt{n}}\sim t_{n-1}$\\
+Fra utvalgsfordelinger kan en utlede testobservatorer og konfidensintervaller!
+%
+%Oppskrift; Utlede konfidensintervall.
+%
+\section{Utlede Konfidensintervall:}
+Anta at vi har $X_1,X_2,\dots,X_n$ stokastiske variabler, hvor sannsynlighetsfordelingen til disse inneholder
+en ukjent parameter $\theta$. Anta også at vi har observasjoner $x_1,x_2,\dots,x_n$. Har lyst å bruke disse 
+for å finne et $100(1-\alpha)\%$ konfidensintervall:
+\begin{enumerate}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item Bestem en stokastiske variabel $Z = h(X_1,X_2,\dots,X_n,\theta)$ som følger en kjent fordeling. Altså finn
+     utvalgsfordelingen for paramaeteren $\theta$
+\end{enumerate}
 \end{document}
