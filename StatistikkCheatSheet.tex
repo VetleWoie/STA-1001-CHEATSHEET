@@ -186,7 +186,7 @@ Være normalfordelt med:
 %
 \subsection*{Vanlige estimatorer:}
 Alle estimatorene vist til her er forventningsrett.
-\begin{itemize}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
     \item $\mu$: $\overline{X}=\frac{1}{n}\sum_{i=1}^n X_i \quad \forvar{\overline{X}}{\mu}{\frac{\sigma^2}{n}}$
     \item $\sigma^2$: $S^2=\frac{1}{1-n}\sum_{i=1}^n(X_i-\overline{X})^2 \; \forvar{S^2}{\sigma^2}{\frac{2\sigma^4}{n-1}}$
     \item $p$: $\hat{p}=\frac{X}{n} \quad \forvar{\hat{p}}{p}{\frac{p(1-p)}{p}}$ Binomisk
@@ -202,6 +202,8 @@ Alle estimatorene vist til her er forventningsrett.
 \subsubsection*{$\bold{\underline{\overline{X},Z}}$:}
 $\overline{X}\sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\; Z=\frac{\overline{X}-E(\overline{X})}{\sqrt{Var{\overline{X}}}}=\frac{\overline{X}-\mu}{\frac{\sigma}{\sqrt{n}}}\sim N(0,1)$
 Selv om populasjonen ikke er normalfordelt gjelder dette når $n\to\infty$.Regner vanligvis tilnærmina for god når $n>30$
+\subsubsection*{Sentralgrenseteoremet:}
+Når utvalgsstørrelsen $N\to\infty$ så vil $\overline{X}\sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)$ for uansett fordeling av $X$. Godkjener dette for $N\geq 30$
 \subsubsection*{$\bold{\underline{T}}$}
 Hvis ukjent varians:
 $T=\frac{\overline{X}-\mu}{S/\sqrt{n}}\sim t_{n-1}$
@@ -212,7 +214,7 @@ $\frac{(n-1)S^2}{\sigma^2}=\frac{1}{\sigma^2}\sum_{i=1}^n(X_i-\overline{X})^2\si
 \subsection*{$\bold{\underline{\hat{p}}}$:}
 Binomisk forsøk med sannsynlighet $p$, gitt at $n$ er stor nok:
 $Z=\frac{\hat{p}-E(\hat{p})}{\sqrt{Var(\hat{p})}}=\frac{\hat{p}-p}{\sqrt{\frac{p(1-p)}{n}}}\sim N(0,1)$
-\subsection*{$\underline{\hat{X_1}-\hat{X_2}}$:}
+\subsection*{$\bold{\underline{\hat{X_1}-\hat{X_2}}}$:}
 Kjent varians:
 \begin{itemize}
     \item $\hat{X_1}-\hat{X_2} \sim N\left(\mu_1-\mu_2,\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}}\right)$
@@ -244,4 +246,69 @@ for å finne et $100(1-\alpha)\%$ konfidensintervall:
     \item Finn kvantilene $Z_{\frac{\alpha}{2}}$ og $Z_{1-\frac{\alpha}{2}}$. Da har en at: $P(Z_{1-\frac{\alpha}{2}}\leq h(X_1,X_2,\dots,X_n,\theta)\leq Z_{\frac{\alpha}{2}})$
     \item Da er løsningen på ulikhetene $Z_{1-\frac{\alpha}{2}} \leq h(X_1,X_2,\dots,X_n,\theta)$ og $Z_{1-\frac{\alpha}{2}}\geq h(X_1,X_2,\dots,X_n,\theta)$ konfidensintervallet.
 \end{enumerate}
+%
+%Prediksjonsintervall
+%
+\section*{Prediksjonsintervall:}
+\subsection*{$\bold{\mu,\sigma}$ kjent:}
+$P\left(-z_{\frac{\alpha}{2}}\leq\frac{X_0-\mu}{\sigma}\leq z_{\frac{\alpha}{2}}\right) = 1-\alpha$
+\subsection*{$\bold{\mu}$ kjent og $\bold{\sigma}$ ukjent:}
+$P\left(-z_{\frac{\alpha}{2}}\leq\frac{X_0-\overline{X}}{\sigma\sqrt{1+\frac{1}{n}}}\leq z_{\frac{\alpha}{2}}\right) = 1-\alpha$
+\subsection*{$\bold{\mu,\sigma}$ ukjent:}
+$P\left(-t_{\frac{\alpha}{2}}\leq\frac{X_0-\overline{X}}{S\sqrt{1+\frac{1}{n}}}\leq t_{\frac{\alpha}{2}}\right) = 1-\alpha$
+
+%
+%Hypotesetesting
+%
+\section*{Hypotesetesting:}
+Velger testobservator med kjent fordeling(Velger utvalgsfordelingen til parameteren) når nullhypotesen er sann.
+Dersom utregna testobservator gir en verdi som er veldig usansynlig hvis nullhypotesen er sann forkastes nullhypotesen.
+\subsection*{Forkastningsområde:}
+Forkastnings område velges slik at det skal være en sannsynlighet $\alpha$ for å få en så ekstrem verdi, dersom $H_0$ er sant.
+Kritisk verdi blir da $z_\alpha$, og vi forkaster $H_0$ om $Z>z_\alpha$
+%
+%Enkel lineær regresjon:
+%
+
+%
+%Generell Sannsynlighet og statistikk
+%
+\section*{Generell sannsynlighet og statistikkregler:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item Addisjonsregel $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+    \item Betinget sannsynlighet $P(A|B)=\frac{P(A\cap B)}{P(B)}$
+    \item Multiplikasjonsregelen:$P(A\cap B)=P(B)P(A|B)=P(A)P(B|A)$
+    \item Kumulativ fordelingsfunksjon $F(X)=P(X\leq x)=\begin{cases}
+        \sum_{t\leq x} P(X=t),\;\text{diskret}\\
+        \int_{-\infty}^x f(t)dt,\;\text{Kont.}
+    \end{cases}$
+    \item Forventningsverdi:$E(X)=\begin{cases}
+        \sum_x xf(x),\;\text{Diskret}\\
+        \int_{-\infty}^\infty,\;\text{Kont.}
+    \end{cases}$
+    \item Varians:\\$Var(X)=\begin{cases}
+        \sum_x(x-\mu)^2f(x)=E(X^2)-E(X)^2\;\text{Diskret}\\
+        \int_{-\infty}^\infty (x-\mu)^2f(x)dx = \int_{-\infty}^{\infty}x^2f(x)dx\cdot\mu^2,\;\text{Kont.}
+    \end{cases}$
+\end{itemize}
+%
+%Simultanfordeling for to variabler
+%
+\section*{Simultanfordeling for to variabler:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $P((x,y)\in A)=\begin{cases}
+        \int\int_A f(x,y)dxdy\;\text{Kont.}\\
+        \sum\sum_A F(x,y)\;\text{Diskret}
+    \end{cases}$
+    \item $g(x)=\int_{-\infty}^\infty f(x,y)dy\;\text{eller}\;\sum_yf(x,y)$ Samme for $h(y)$
+    \item $f(y|x)=\frac{f(x,y)}{g(x)}$
+    \item $\sigma_{XY}=Cov(X,y)=E[(X-\mu_X)(Y-\mu_Y)]=\begin{cases}
+        \sum_x\sum_y(x-\mu_X)(y-\mu_Y)f(x,y),\;\text{Diskret}\\
+        \int_{-\infty}^\infty\int_{-\infty}^\infty (x-\mu_X)(y-\mu_Y)f(x,y)dxdy\;\text{Kont.}
+    \end{cases}$
+    \item $\rho_{XY}=Cor(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$
+    \item $X,Y$ uavhengig $\Rightarrow Cov(x,y)=0$
+\end{itemize}
+
+
 \end{document}
