@@ -269,6 +269,32 @@ Kritisk verdi blir da $z_\alpha$, og vi forkaster $H_0$ om $Z>z_\alpha$
 %
 %Enkel lineær regresjon:
 %
+\section*{Enkel lineær regresjon:}
+\subsection*{Regresjonsmodell:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $Y_i)\beta_0+\beta_1x_i+\epsilon_i,\;i=1,\dots,n$
+    \item Forutsatt: $E(\epsilon_i) = 0,\;Var(\epsilon_i)=\sigma^2$
+    \item $E(Y_i)=\mu_{Y|x_i}=\beta_0+\beta_1x_i,\;Var(Y_i)=\sigma^2_{Y|x_i}=\sigma^2$
+\end{itemize}
+\subsection*{Minste kvadraters metode:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item Brukes for å finne $\beta_0,\beta_1$ fra data
+    \item Vil minimere $SSE=\sum_{i=1}^n(y_i-\hat{y_i})^2=\sum_{i=1}^n(y_i-b_0-b_1)$
+    \item Minste verdier av $b_0,b_1$ kan finnes ved partiellderivasjon.
+    \item $b_1=\frac{\sum_{i=1}^n(x_i-\overline{x})(Y_i-\overline{Y})}{\sum_{i=1}^n(x_i-\overline{x})^2},\; b_0=\overline{Y}-B_1\overline{x}$
+    \item $b_0, b_1$ forventningsrette estimatorer for $\beta_0,\beta_1$
+    \item $S^2=\frac{SSE}{n-2}$
+\end{itemize}
+\subsubsection*{Inferens av parametere:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $T=\frac{b_1-E(b_1)}{\hat{SE(b_1)}}=\frac{b_1-\beta_1}{\frac{S}{\sqrt{\sum_{i=1}^n(x_i-\overline{x})^2}}}$, t-fordelt,$n-2$ frihetsgrader
+    \item $T=\frac{b_0-E(b_0)}{\hat{SE(b_0)}}=\frac{b_0-\beta_0}{S\sqrt{\frac{\sum_{i=1}^nx^2_i}{n\sum_{i=1}^n(x_i-\overline{x})^2}}}$,t-fordelt, $n-2$ frihetsgrader
+\end{itemize}
+\subsubsection*{Inferens av $\bold{\sigma^2}$ og $\bold{\mu_{Y|x_0}}$:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $\sigma^2$: $V=\frac{(n-2)S^2}{\sigma^2}$, $\chi^2$-fordelt, $n-2$ frihetsgrader
+    \item $\mu_{Y|x_0}$: $T=\frac{\hat{Y_0}-\mu_{Y|x_0}}{S\sqrt{\frac{1}{n}+\frac{(x_0-\overline{x})^2}{\sum_{i=1}^n(x_i-\overline{x})^2}}}$, t-fordelt, $n-2$ frihetsgrader
+\end{itemize}
 
 %
 %Generell Sannsynlighet og statistikk
