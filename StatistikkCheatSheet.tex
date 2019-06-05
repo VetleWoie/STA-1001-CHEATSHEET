@@ -1,4 +1,4 @@
-\documentclass[8pt,a4paper,twocolumn,twoside]{article}
+\documentclass[12pt,a4paper,twocolumn,twoside]{article}
 \usepackage[a4paper,total={20cm, 28.5cm},headsep=0.3cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{sectsty}
@@ -266,6 +266,22 @@ Dersom utregna testobservator gir en verdi som er veldig usansynlig hvis nullhyp
 \subsection*{Forkastningsområde:}
 Forkastnings område velges slik at det skal være en sannsynlighet $\alpha$ for å få en så ekstrem verdi, dersom $H_0$ er sant.
 Kritisk verdi blir da $z_\alpha$, og vi forkaster $H_0$ om $Z>z_\alpha$
+\subsection*{Kritisk region:}
+Hypotesetest for parameter $\theta$ og fordeling $z$:\\  
+\begin{tabular}{|c|c|}
+    $\theta<\theta_0$ & $z<-z_\alpha$ \\
+    $\theta>\theta_0$ & $z<z_\alpha$ \\
+    $\theta\neq\theta_0$ & $z<z_{\frac{\alpha}{2}} \text{ eller } z>z_{\frac{\alpha}{2}}$
+\end{tabular}
+\subsection*{Type 1 og type 2 feil:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item Type 1: Forkaste $h_0$ når $h_0$ er sann:\\$\alpha = P(\text{Forkaste }h_0\;|h_0\;\text{sann})$
+    \item Type 2: Forkaster ikke $h_0$ når $h_1$ er sann:\\$\beta = P(\text{Beholder }h_0\;|\;h_1\;\text{sann})$
+\end{itemize}
+\subsection*{P-verdi:}
+$P(\text{minst like ekstremt resultat som vi fikk} | H_0 \text{ sann})$
+\subsection*{Styrken til hypotesetest:}
+$\text{Styrken }=1-P(\text{type II-feil})=1-\beta$
 %
 %Enkel lineær regresjon:
 %
@@ -335,6 +351,17 @@ Kritisk verdi blir da $z_\alpha$, og vi forkaster $H_0$ om $Z>z_\alpha$
     \item $\rho_{XY}=Cor(X,Y)=\frac{Cov(X,Y)}{\sqrt{Var(X)Var(Y)}}$
     \item $X,Y$ uavhengig $\Rightarrow Cov(x,y)=0$
 \end{itemize}
+%
+%Sannynlighetsmaksimering:
+%
+\section*{Sannsynlighetsmaksimeringsestimator:}
+Brukes hvis en ikke har/vet en naturlig estimator for en parameter $\theta$
+\begin{enumerate}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $L(\theta)=f(x_1,x_2,\dots,x_n;\theta)=\prod_{i=1}^nf(x_i;\theta)$
+    \item Bruk $\ln(L)$ og deriver med hensyn på theta.
+    \item Løs $\parder{L}{\theta}{\theta} = 0$ for $\theta$
+\end{enumerate}
+
 
 
 \end{document}
