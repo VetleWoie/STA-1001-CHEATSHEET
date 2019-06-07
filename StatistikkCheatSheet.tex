@@ -73,6 +73,7 @@ $X$ er antall forsøk en må gjøre for at en hendelse $A$ skal intreffe $k$ gan
 \subsection*{Geometrisk:}
 $X$ er antall forsøk en må gjøre for at hendelsen $A$ intreffer første gang.
 \begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $g(x)=P(X=x)=p(1-p)^{X-1}$
     \item $E(X)=1/p \quad Var(X)=\frac{1-p}{p^2}$
 \end{itemize}
 Geometrisk fordeling er minneløs!
@@ -222,15 +223,16 @@ Kjent varians:
 \end{itemize}
 Ukjent varians:
 \begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
-    \item $\sigma^2_1=\sigma^2_2$: $T=\frac{(\overline{X_1}-\overline{X_2}-(\mu_1-\mu_2)}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t_{n_1+n_2-2}$
-    \item $\sigma^2_1\neq\sigma^2_2$: $T'=\frac{(\overline{X_1}-\overline{X_2})-(\mu_1-\mu_2)}{\sqrt{\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2}}}\sim t_v,\, v=\frac{(S^2_1/n_1+s^2_2/n_2)^2}{\frac{(S^2_/n_1)^2}{n_1-1}+\frac{(S^2_2/n_2)^2}{n_2-1}}$
+    \item $\sigma^2_1=\sigma^2_2$: $T=\frac{(\overline{X_1}-\overline{X_2})-(\mu_1-\mu_2)}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}\sim t_{n_1+n_2-2}$\\
+            $S_p^2=\frac{S_1^2(n_1-1)+S_2^2(n_2-1)}{n_1+n_2-2}$
+    \item $\sigma^2_1\neq\sigma^2_2$: $T'=\frac{(\overline{X_1}-\overline{X_2})-(\mu_1-\mu_2)}{\sqrt{\frac{S^2_1}{n_1}+\frac{S^2_2}{n_2}}}\sim t_v,\\ v=\frac{(S^2_1/n_1+s^2_2/n_2)^2}{\frac{(S^2_/n_1)^2}{n_1-1}+\frac{(S^2_2/n_2)^2}{n_2-1}}$
 \end{itemize}
 \subsection*{$\bold{\underline{F}}$}
 Fra to uavhengige NF utvalg:
 $F=\frac{S^2_1\sigma^2_2}{S^2_2\sigma^2_1}\sim F_{n_1-1,n_2-1}$
 \subsection*{$\bold{\underline{\hat{p_1}-\hat{p_2}}}$}
 $Z=\frac{(\hat{p_1}-\hat{p_2})-(p_1-p_2)}{\sqrt{\frac{p_1(1-p_1)}{n_1}+\frac{p_2(1-p_2)}{n_2}}}\sim N(0,1)$
-\subsection*{$\bold{\underline{\overline{D}}}$}
+\subsection*{$\bold{\underline{\overline{D}}}$ Differanse av parvis utvalg}
 Gitt normalfordeling: $T=\frac{\overline{D}-\mu_D}{S_D/\sqrt{n}}\sim t_{n-1}$\\
 Fra utvalgsfordelinger kan en utlede testobservatorer og konfidensintervaller!
 %
@@ -288,7 +290,7 @@ $\text{Styrken }=1-P(\text{type II-feil})=1-\beta$
 \section*{Enkel lineær regresjon:}
 \subsection*{Regresjonsmodell:}
 \begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
-    \item $Y_i)\beta_0+\beta_1x_i+\epsilon_i,\;i=1,\dots,n$
+    \item $Y_i=\beta_0+\beta_1x_i+\epsilon_i,\;i=1,\dots,n$
     \item Forutsatt: $E(\epsilon_i) = 0,\;Var(\epsilon_i)=\sigma^2$
     \item $E(Y_i)=\mu_{Y|x_i}=\beta_0+\beta_1x_i,\;Var(Y_i)=\sigma^2_{Y|x_i}=\sigma^2$
 \end{itemize}
@@ -297,8 +299,10 @@ $\text{Styrken }=1-P(\text{type II-feil})=1-\beta$
     \item Brukes for å finne $\beta_0,\beta_1$ fra data
     \item Vil minimere $SSE=\sum_{i=1}^n(y_i-\hat{y_i})^2=\sum_{i=1}^n(y_i-b_0-b_1)$
     \item Minste verdier av $b_0,b_1$ kan finnes ved partiellderivasjon.
-    \item $b_1=\frac{\sum_{i=1}^n(x_i-\overline{x})(Y_i-\overline{Y})}{\sum_{i=1}^n(x_i-\overline{x})^2},\; b_0=\overline{Y}-B_1\overline{x}$
+    \item $b_1=\frac{\sum_{i=1}^n(x_i-\overline{x})(Y_i-\overline{Y})}{\sum_{i=1}^n(x_i-\overline{x})^2},\; b_0=\overline{Y}-b_1\overline{x}$
     \item $b_0, b_1$ forventningsrette estimatorer for $\beta_0,\beta_1$
+    \item $Var(b_1)=\frac{\sigma^2}{\sum_{i=1}^n (x_i-\overline{x})^2}$
+    \item $Var(b_0)=\frac{\sigma^2\sum_{i=1}^nx_i^2}{n\sum_{i=1}^n(x_i-\overline{x})^2}$
     \item $S^2=\frac{SSE}{n-2}$
 \end{itemize}
 \subsubsection*{Inferens av parametere:}
@@ -319,19 +323,21 @@ $\text{Styrken }=1-P(\text{type II-feil})=1-\beta$
 \begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
     \item Addisjonsregel $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
     \item Betinget sannsynlighet $P(A|B)=\frac{P(A\cap B)}{P(B)}$
-    \item Multiplikasjonsregelen:$P(A\cap B)=P(B)P(A|B)=P(A)P(B|A)$
-    \item Kumulativ fordelingsfunksjon $F(X)=P(X\leq x)=\begin{cases}
+    \item Multiplikasjonsregelen:\\$P(A\cap B)=P(B)P(A|B)=P(A)P(B|A)$
+    \item Kumulativ fordelingsfunksjon: $F(X)=P(X\leq x)=\begin{cases}
         \sum_{t\leq x} P(X=t),\;\text{diskret}\\
         \int_{-\infty}^x f(t)dt,\;\text{Kont.}
     \end{cases}$
-    \item Forventningsverdi:$E(X)=\begin{cases}
-        \sum_x xf(x),\;\text{Diskret}\\
-        \int_{-\infty}^\infty,\;\text{Kont.}
+    \item Forventningsverdi:\\$E(X)=\begin{cases}
+        \sum_x Xf(x),\;\text{Diskret}\\
+        \int_{-\infty}^\infty,Xf(x)\;\text{Kont.}
     \end{cases}$
     \item Varians:\\$Var(X)=\begin{cases}
         \sum_x(x-\mu)^2f(x)=E(X^2)-E(X)^2\;\text{Diskret}\\
         \int_{-\infty}^\infty (x-\mu)^2f(x)dx = \int_{-\infty}^{\infty}x^2f(x)dx\cdot\mu^2,\;\text{Kont.}
     \end{cases}$
+    \item $E(X+Y) = E(X)+E(Y)\quad E(cX)=cE(X)$
+    \item $Var(X+Y) = Var(X)+Var(Y)\\ Var(aX+b)=a^2Var(X)$ Ved uavhengighet.
 \end{itemize}
 %
 %Simultanfordeling for to variabler
