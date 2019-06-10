@@ -369,7 +369,36 @@ Brukes hvis en ikke har/vet en naturlig estimator for en parameter $\theta$
     \item Bruk $\ln(L)$ og deriver med hensyn på theta.
     \item Løs $\parder{L}{\theta}{\theta} = 0$ for $\theta$
 \end{enumerate}
+\subsection*{Eksempel:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $f(x;\beta)=\frac{1}{\beta}e^{-\frac{x}{\beta}}$
+    \item $L(\beta)=\prod_{i=1}^nf(x_i;\beta) = \prod_{i=1}^n\frac{1}{\beta}e^{-\frac{x_i}{\beta}}=\frac{1}{\beta^n}e^{\sum_{i=1}^n\frac{x_i}{\beta}}$
+    \item Ønsker å derivere, men har produkt. så tar ln:
+    \item $\ln(L(\beta))\stackrel{\text{Bruker logaritmeregler}}{=}\ln(\frac{1}{\beta^n}e^{\sum_{i=1}^n\frac{x_i}{\beta}}) = \ln(1)-n\cdot\ln(\beta)+\sum_{i=1}^n\frac{x_i}{\beta}$
+    \item Deriverer:
+    \item $\parder{L}{\beta}{\beta}=\parder{}{\beta}{-n\cdot\ln(\beta)}+\sum_{i=0}^n\parder{}{\beta}{\frac{x_i}{\beta}}$
+    \item $\parder{L}{\beta}{\beta}=-\frac{n}{\beta}+\sum_{i=1}^n x_i\beta^{-2}$
+    \item Setter utrykket lik 0 og løser:
+    \item $\frac{n}{p}=\sum_{i=1}^n\frac{x_i}{\beta^2}$
+    \item Trekker $\beta^{-2}$ ut av summen, fordi summen omhandler x
+    \item $\beta=\frac{1}{n}\sum_{i=1}^nx_i$
+\end{itemize}
 
+\section*{Logaritmeregler:}
+\begin{itemize}[topsep=0pt,itemsep=0pt, partopsep=0pt]
+    \item $\ln(a\cdot b) = \ln(a)+\ln(b)$
+    \item $\ln(a/b) = \ln(a)-\ln(b)$
+    \item $\ln(a^n) = n\cdot\ln(a)$
+\end{itemize}
+
+%
+%Marits Addition
+%
+\section*{Forventning:}
+Forventningsverdien er et sentralmål, og sier noe om hvor sentrum av fordelingen er.
+Gjennomsnitt av alle observasjonene i populasjonen og tyngdepunktet i sannsynlighetstettheten.
+\section*{Varians:}
+Varians er et spredningsmål for fordelingen. Forventet kvadratavvik fra forventningsverdien.
 
 
 \end{document}
